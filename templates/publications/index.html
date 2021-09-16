@@ -1,0 +1,66 @@
+{% extends 'layouts/base.html' %}
+
+
+{% block title %}Места для рыбалки{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light mine-mar">Места для рыбалки</h1>
+            <p class="lead text-muted">Последние записи</p>
+        </div>
+    </div>
+    <div>
+        {% for article in page_object %}
+        <div class="row">
+            <div class="col-md-8">
+            <img class="img" src="/media/{{ article.image }}" width="80%" height="80%">
+            </div>
+            <div class="col-md-4">
+            <p>{{ article.published }}</p>
+            <p><strong>{{ article.place }}</strong></p>
+            <p>{{ article.content }}</p>
+            <p>{{ article.address }}</p>
+            <p><a href="{{ article.url }}" target="_blank">Ссылка на место</a></p>
+            </div>
+            <div class="clearfix"></div>
+            {% if user.username is not None %}
+            <div class="container">
+            <a class="btn btn-success" href="/publications/create">Добавить статью</a>
+            </div>
+            {% endif %}
+        </div>
+        {% endfor %}
+        <div class="paginator" style="margin-top: 20px">
+            <span class="step-links">
+                {% if page_object.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_object.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}.
+                </span> {% if page_object.has_next %}
+            <a href="?page={{ page_object.next_page_number }}">next</a>
+            <a href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a> {% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+<style>
+    .btn-success {
+        margin-bottom: 0.8em;
+        margin-top: 0.5em;
+    }
+    .mine-mar {
+        margin-top: 0.2em;
+        margin-bottom: 0.5em;
+    }
+
+    section {
+        font-size: 1.6em;
+    }
+
+</style>
+{% endblock content %}

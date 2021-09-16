@@ -1,0 +1,53 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Поделки для рыбалки</h1>
+            <p class="lead text-muted">Последние записи</p>
+        </div>
+    </div>
+    <div class="mine-font">
+        {% for craft in page_object %}
+        <img src="/media/{{ craft.image }}" alt="" width="50%" height="50%">
+        <p><strong>{{ craft.published }}</strong></p>
+           <p><strong>{{ craft.title }}</strong></p>
+           <p>{{ craft.content }}</p>
+        <div class="clearfix"></div>
+            {% if user.username is not None %}
+                <a class="btn btn-primary" href="/crafts/create">Добавить статью</a>
+            {% endif %}
+        {% endfor %}
+
+        <div class="paginator" style="margin-top: 20px">
+            <span class="step-links">
+                {% if page_object.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_object.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}
+                </span>
+                {% if page_object.has_next %}
+                    <a href="?page={{ page_object.next_page_number }}">next</a>
+                    <a href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+<style>
+    .mine-font {
+        font-size: 1.2em;
+    }
+</style>
+
+{% endblock content %}
+
+

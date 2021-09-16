@@ -1,0 +1,29 @@
+{% extends 'layouts/base.html' %}
+{% block title %}Места для рыбалки{% endblock %}
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Ламповое общение</h1>
+            <p class="lead text-muted">Последние записи</p>
+        </div>
+    </div>
+
+    <div class="paginator" style="margin-top: 20px">
+        <span class="step-links">
+                {% if page_object.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_object.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}
+                </span> {% if page_object.has_next %}
+        <a href="?page={{ page_object.next_page_number }}">next</a>
+        <a href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a> {% endif %}
+        </span>
+    </div>
+
+</section>
+
+{% endblock content %}

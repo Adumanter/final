@@ -1,0 +1,46 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}Поделки для рыбалки{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Новости рыбалки</h1>
+            <p class="lead text-muted">Последние новости</p>
+        </div>
+    </div>
+    <div>
+        {% for new in page_object %}
+        <img src="/media/{{ new.image }}" alt="" width="50%" height="50%">
+        <p><strong>{{ new.published }}</strong></p>
+           <p><strong>{{ new.title }}</strong></p>
+           <p id="color" class="text">{{ new.content }}</p>
+        <div class="clearfix"></div>
+        {% endfor %}
+
+        <div class="paginator" style="margin-top: 20px">
+            <span class="step-links">
+                {% if page_object.has_previous %}
+                    <a href="?page=1">&laquo; first</a>
+                    <a href="?page={{ page_object.previous_page_number }}">previous</a>
+                {% endif %}
+                <span class="current">
+                    Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}
+                </span>
+                {% if page_object.has_next %}
+                    <a href="?page={{ page_object.next_page_number }}">next</a>
+                    <a href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a>
+                {% endif %}
+            </span>
+        </div>
+    </div>
+</section>
+
+
+{% endblock content %}
+
+

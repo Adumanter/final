@@ -1,0 +1,57 @@
+{% extends 'layouts/base.html' %} {% block title %}Создание статьи{% endblock title %} {% block content %}
+<section id="font" class="py-5 text-center container main-box">
+    <div class="row">
+        <div class="col-lg-8 col-md-8 mx-auto">
+            <h1 class="fw-light">Добавение статьи</h1>
+            <div class="form-box" style="text-align: left">
+                <form method="post" action="/crafts/create" enctype="multipart/form-data">
+                    {% csrf_token %}
+                    <div class="form-template">
+                        {% for field in form %}
+                        <div class="form-group">
+                            {{ field.label_tag }}
+                            <div>{{ field }}</div>
+                        </div>
+
+                        {% endfor %}
+                    </div>
+                    <p style="margin: 10px">
+                        <input id="b1" type="submit" value="Отпарвить" class="btn btn-primary">
+                    </p>
+                </form>
+            </div>
+            <a href="/publications">Вернутся к списку статей</a>
+        </div>
+    </div>
+</section>
+<style>
+    .main-box {
+        padding-top: 0px;
+    }
+
+    .main-box .row {
+        padding-top: 0px;
+    }
+
+    .form-box {
+        margin-top: 25px;
+    }
+
+    .form-group input {
+        width: 50%;
+        height: 30px;
+    }
+
+    .form-group textarea {
+        width: 50%;
+    }
+
+    #b1,
+    #b2 {
+        margin-top: 10px;
+    }
+    #font {
+        font-size: 1.2em;
+    }
+</style>
+{% endblock content %}
