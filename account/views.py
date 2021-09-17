@@ -62,10 +62,6 @@ def sign_out(request):
     return redirect('/home')
 
 
-def profile(request):
-    return render(request, 'account/profile.html')
-
-
 def ajax_reg(request):
     response = dict()
     login_x = request.GET.get('login')
