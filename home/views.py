@@ -8,9 +8,7 @@ from telebot.send_message import send_telegram
 from .models import Contact
 
 
-
 def index(request):
-
     articles = Article.objects.all()
     turnirs = Turnir.objects.all()
     crafts = Craft.objects.all()

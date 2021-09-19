@@ -23,7 +23,7 @@
             <p><strong>{{ article.place }}</strong></p>
             <p>{{ article.content }}</p>
             <p>{{ article.address }}</p>
-            <p><a href="{{ article.url }}" target="_blank">Ссылка на место</a></p>
+            <iframe src="{{ article.url }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
             <div class="clearfix"></div>
             {% if user.username is not None %}
@@ -64,3 +64,4 @@
 
 </style>
 {% endblock content %}
+

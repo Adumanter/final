@@ -22,7 +22,7 @@ def create(request):
     if request.method == 'GET':
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # Блокировка доступа через адресную строку!!!!!!!!!
-        if request.user.username == 'Adumanter':
+        if request.user.username == 'Adumanter007':
             # Создаем экземпляр формы и передаеи его в шаблон:
             data['form'] = ArticleForm()
             return render(request, 'publications/create.html', context=data)
