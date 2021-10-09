@@ -6,7 +6,7 @@ class Article(models.Model):
     content = models.TextField(max_length=2500, null=False, verbose_name='Содержание')
     image = models.FileField(null=False, upload_to='upload/')
     url = models.URLField(max_length=1000)
-    published = models.DateTimeField(null=False, auto_now=True)
+    published = models.DateTimeField(null=False, auto_now=True, verbose_name='Дата публикации')
     address = models.CharField(max_length=300, null=False, verbose_name='Адрес')
 
     def __str__(self):

@@ -13,7 +13,7 @@
         </div>
     </div>
     <div>
-        {% for article in page_object %}
+        {% for article in articles %}
         <div class="row">
             <div class="col-md-8">
             <img class="img" src="/media/{{ article.image }}" width="80%" height="80%">
@@ -35,19 +35,6 @@
 
         </div>
         {% endfor %}
-        <div class="paginator" style="margin-top: 20px">
-            <span class="step-links">
-                {% if page_object.has_previous %}
-                    <a href="?page=1">&laquo; first</a>
-                    <a href="?page={{ page_object.previous_page_number }}">previous</a>
-                {% endif %}
-                <span class="current">
-                    Page {{ page_object.number }} of {{ page_object.paginator.num_pages }}.
-                </span> {% if page_object.has_next %}
-            <a href="?page={{ page_object.next_page_number }}">next</a>
-            <a href="?page={{ page_object.paginator.num_pages }}">last &raquo;</a> {% endif %}
-            </span>
-        </div>
     </div>
 </section>
 <style>

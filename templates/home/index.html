@@ -11,18 +11,20 @@
 
                 <div class="col-md-6 col-6 paddding animate-box" data-animate-effect="fadeIn">
                     {% for article in articles %}
-
                     <div id="image" class="fh5co_suceefh5co_height_2 mine "><img src="/media/{{ article.image }}" alt="img"/>
                         <div class="clearfix"></div>
                         <div class="fh5co_suceefh5co_height_position_absolute_font_2">
+
                             <div>
-                                <a href="/publications/index" class="color_fff"> <i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ article.published }} </a>
+                                <a href="/publications/index" class="color_fff"><i class="fa fa-clock-o"></i>&nbsp;&nbsp;{{ article.published }}</a>
                             </div>
-                            <div><a href="/publications/index" class="fh5co_good_font_2">{{ article.place }}<br> </a></div>
+
+                            <div><a href="{% url 'article' article.id %}" class="fh5co_good_font_2">{{ article.place }}<br> </a></div>
+
                         </div>
                     </div>
 
-                     {% endfor %}
+                    {% endfor %}
                 </div>
 
             </div>

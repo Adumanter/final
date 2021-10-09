@@ -3,7 +3,7 @@ from django.db import models
 
 class Turnir(models.Model):
     title = models.CharField(max_length=150, null=False, verbose_name='Заголовок')
-    published = models.DateTimeField(auto_now=True)
+    published = models.DateTimeField(auto_now=True, verbose_name='Дата публикации')
     date = models.CharField(max_length=100, verbose_name='Дата события')
     place = models.CharField(max_length=300, verbose_name='Место проведения')
     phone = models.IntegerField(verbose_name='Телефон')

@@ -20,9 +20,12 @@ def index(request):
         'news': news
 
     }
+    print(type(articles))
     return render(request, 'home/index.html', context=data)
 
-
+def get_article(request, aid):
+    article = Article.objects.filter(pk=aid)
+    return render(request, 'publications/article.html', {'articles': article})
 def contact(request):
     data = dict()
     if request.method == 'GET':
