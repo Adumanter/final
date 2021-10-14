@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class Turnir(models.Model):
@@ -12,6 +13,9 @@ class Turnir(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('get_turnir', kwargs={'pk': self.pk})
 
     class Meta:
         verbose_name = 'Событие'

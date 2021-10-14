@@ -1,0 +1,38 @@
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block title %}{% endblock %}
+
+
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Поделки для рыбалки</h1>
+            <p class="lead text-muted">Последние записи</p>
+        </div>
+    </div>
+    <div class="mine-font">
+        {% for craft in crafts %}
+        <img src="/media/{{ craft.image }}" alt="" width="50%" height="50%">
+        <p><strong>{{ craft.published }}</strong></p>
+           <p><strong>{{ craft.title }}</strong></p>
+           <p>{{ craft.content }}</p>
+        <div class="clearfix"></div>
+            {% if request.user.is_authenticated %}
+                <a class="btn btn-primary" href="{% url 'create' %}">Добавить статью</a>
+            {% endif %}
+        {% endfor %}
+
+    </div>
+</section>
+<style>
+    .mine-font {
+        font-size: 1.2em;
+    }
+</style>
+
+{% endblock content %}
+
+

@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 
 class New(models.Model):
@@ -9,6 +10,9 @@ class New(models.Model):
 
     def __str__(self):
         return self.title
+
+    def get_absolute_url(self):
+        return reverse('single_fish_news', kwargs={"pk": self.pk})
 
     class Meta:
         verbose_name = 'Новость о рыбалке'

@@ -21,7 +21,7 @@
             <div class="col-md-4">
             <p>{{ article.published }}</p>
             <p><strong>{{ article.place }}</strong></p>
-            <p>{{ article.content }}</p>
+            <p>{{ article.content|truncatewords:10 }}</p>
             <p>{{ article.address }}</p>
             <iframe src="{{ article.url }}" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>

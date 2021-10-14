@@ -2,93 +2,139 @@
 {% load static %}
 
 
+<div class="container-fluid">
+    <div class="row craft">
+        <div class="col-md-1">
 
-
-<div class="row">
-
-    <div class="col-sm-10" style="margin-right: ">
-        <a href="/">
-            <img class="mine-img" src="{% static 'images/fishing2.jpg' %}" alt="">
-        </a>
-    </div>
-
-    <nav class="col-sm-2">
-        <div class="d-inline-block text-center dd_position_relative ">
-            <a class="btn btn-outline-primary" href="/account/sign_up">Регистрация</a>
-            <a class="btn btn-outline-primary" href="/account/sign_in">Вход</a>
-            <a class="btn btn-outline-primary" href="/account/sign_out">Выход</a>
+            <a href="{% url 'home' %}">
+                <img class="mine-img" src="{% static 'images/f4.png' %}" alt="">
+            </a>
         </div>
-    </nav>
+        <div class="col-md-2">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" href="{% url 'home' %}">Главная<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" href="{% url 'publications' %}">Места ловли<span
+                            class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" href="{% url 'crafts' %}">Креатив<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" href="{% url 'turnir' %}">События<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-1">
+            <ul class="navbar-nav">
+                <li>
+                    <a class="nav-link" href="{% url 'fish_news' %}">Новости<span class="sr-only">(current)</span></a>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-2">
+            <div class=" ">
+                {% if request.user.is_authenticated %}
+                    <a class="btn btn-outline-primary" href="/account/sign_out">Выход</a>
+                {% else %}
+                    <a class="btn btn-outline-primary" href="/account/sign_up">Регистрация</a>
+                    <a class="btn btn-outline-primary" href="/account/sign_in">Вход</a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
 </div>
-<div class="row craft ">
-        <div class="container padding_786">
 
-            <nav class="navbar navbar-toggleable-md navbar-light ">
+<!--<div class="row">-->
+
+<!--    <div class="col-sm-10" style="margin-right: ">-->
+<!--        <a href="{% url 'home' %}">-->
+<!--            <img class="mine-img" src="{% static 'images/fishing2.jpg' %}" alt="">-->
+<!--        </a>-->
+<!--    </div>-->
+
+<!--    <nav class="col-sm-2">-->
+<!--        <div class="d-inline-block text-center dd_position_relative ">-->
+<!--            {% if request.user.is_authenticated %}-->
+<!--            <a class="btn btn-outline-primary" href="/account/sign_up">Регистрация</a>-->
+<!--            <a class="btn btn-outline-primary" href="/account/sign_in">Вход</a>-->
+<!--            {% else %}-->
+<!--            <a class="btn btn-outline-primary" href="/account/sign_out">Выход</a>-->
+<!--            {% endif %}-->
+<!--        </div>-->
+<!--    </nav>-->
+<!--</div>-->
+<!--<div class="row craft mb-3">-->
+<!--        <div class="container padding_786">-->
+
+<!--            <nav class="navbar navbar-toggleable-md navbar-light ">-->
 
 
-                <div id="margin-low" class="collapse navbar-collapse">
+<!--                <div id="margin-low" class="collapse navbar-collapse">-->
 
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="{% url 'home' %}">Главная<span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="/publications/index">Места ловли<span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="/crafts/index">Креатив<span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="/talking/index">Общение <span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="/turnir/index">События<span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                    <div class="col-md-2">
-                        <ul class="navbar-nav">
-                            <li>
-                                <a class="nav-link" href="/fish_news/index">Новости<span class="sr-only">(current)</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div>
+<!--                    <div class="col-md-2">-->
+
+<!--                    </div>-->
+<!--                    <div class="col-md-2">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li>-->
+<!--                                <a class="nav-link" href="{% url 'publications' %}">Места ловли<span class="sr-only">(current)</span></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li>-->
+<!--                                <a class="nav-link" href="{% url 'crafts' %}">Креатив<span class="sr-only">(current)</span></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li>-->
+<!--                                <a class="nav-link" href="{% url 'talking' %}">Общение <span class="sr-only">(current)</span></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li>-->
+<!--                                <a class="nav-link" href="{% url 'turnir' %}">События<span class="sr-only">(current)</span></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                    <div class="col-md-2">-->
+<!--                        <ul class="navbar-nav">-->
+<!--                            <li>-->
+<!--                                <a class="nav-link" href="{% url 'fish_news' %}">Новости<span class="sr-only">(current)</span></a>-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </nav>-->
+<!--        </div>-->
+<!--    </div>-->
 
 
 <style>
 
-.img-f {
-    margin-left: 0;
-    display: block;
-    margin-bottom: 1.2em;
-    position: relative;
-    right: 1.1em;
-    background-color: #d3f0fe;
-}
+
 .craft {
     background-color: #d3f0fe;
-    margin-left: 3em;
 }
 .header-mine {
     background-color: #d3f0fe;
@@ -101,6 +147,7 @@
 .mine-img {
     width: 2.8em;
     height: 2.8em;
+    background-image: url('static/fishka.png')
 }
 .header-mine {
     display: inline-block;

@@ -1,0 +1,33 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Соревнования{% endblock %}
+
+{% block content %}
+
+<section class="py-5 text-center container main-box">
+    <div class="row py-lg-5">
+
+        <div class="col-lg-6 col-md-8 mx-auto">
+            <h1 class="fw-light">Ближайшие события</h1>
+        </div>
+
+    </div>
+
+
+    <div>
+
+        {% for turnir in turnirs %}
+
+        <img src="/media/{{ turnir.image }}" alt="" width="70%" height="70%">
+
+        <p><strong>{{ turnir.title }}</strong></p>
+        <p><strong>{{ turnir.place }}</strong></p>
+        <p><strong>{{ turnir.date }} / {{ turnir.phone }}</strong></p>
+        <p>{{ turnir.content }} / {{ turnir.published }}</p>
+
+        {% endfor %}
+
+    </div>
+</section>
+
+{% endblock content %}

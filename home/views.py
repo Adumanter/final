@@ -1,4 +1,6 @@
 from django.shortcuts import render, redirect
+from django.views.generic import DetailView
+
 from publications.models import Article
 from turnir.models import Turnir
 from crafts.models import Craft
@@ -9,23 +11,31 @@ from .models import Contact
 
 
 def index(request):
-    articles = Article.objects.all()
-    turnirs = Turnir.objects.all()
-    crafts = Craft.objects.all()
     news = New.objects.all()
-    data = {
-        'articles': articles,
-        'turnirs': turnirs,
-        'crafts': crafts,
-        'news': news
+    data = {'news': news}
+    return render(request, 'home/index1.html', context=data)
 
-    }
-    print(type(articles))
-    return render(request, 'home/index.html', context=data)
 
 def get_article(request, aid):
     article = Article.objects.filter(pk=aid)
     return render(request, 'publications/article.html', {'articles': article})
+
+
+def get_turnir(request, pk):
+    turnir = Turnir.objects.filter(pk=pk)
+    return render(request, 'turnir/turnir_single.html', {'turnirs': turnir})
+
+
+def get_craft(request, cid):
+    craft = Craft.objects.filter(pk=cid)
+    return render(request, 'crafts/single_craft.html', {'crafts': craft})
+
+
+def get_news(request, nid):
+    new = New.objects.filter(id=nid)
+    return render(request, 'fish_news/single_fish_news.html', {'news': new})
+
+
 def contact(request):
     data = dict()
     if request.method == 'GET':
@@ -48,4 +58,3 @@ def contact(request):
 
 def about(request):
     return render(request, 'home/about.html')
-
