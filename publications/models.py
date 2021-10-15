@@ -14,7 +14,7 @@ class Article(models.Model):
         return self.place
 
     def get_absolute_url(self):
-        return reverse('article', kwargs={'pk': self.pk})
+        return reverse('article', kwargs={'aid': self.pk})
 
     class Meta:
         verbose_name = 'Статья'

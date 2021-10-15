@@ -12,7 +12,7 @@ class Craft(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('single_crafts', kwargs={"pk": self.pk})
+        return reverse('single_craft', kwargs={"cid": self.pk})
 
     class Meta:
         verbose_name = 'Поделка'

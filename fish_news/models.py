@@ -12,7 +12,7 @@ class New(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse('single_fish_news', kwargs={"pk": self.pk})
+        return reverse('single_fish_news', kwargs={"nid": self.pk})
 
     class Meta:
         verbose_name = 'Новость о рыбалке'
