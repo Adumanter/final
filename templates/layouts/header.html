@@ -49,10 +49,11 @@
         <div class="col-md-2">
             <div class=" ">
                 {% if request.user.is_authenticated %}
-                    <a class="btn btn-outline-primary" href="/account/sign_out">Выход</a>
+                <i id="welcome">Welcome, {{ user.username }}!</i>
+                    <a class="btn btn-outline-primary mt-2" href="{% url 'logout' %}">Выход</a>
                 {% else %}
-                    <a class="btn btn-outline-primary" href="/account/sign_up">Регистрация</a>
-                    <a class="btn btn-outline-primary" href="/account/sign_in">Вход</a>
+                    <a class="btn btn-outline-primary mt-2" href="{% url 'register' %}">Регистрация</a>
+                    <a class="btn btn-outline-primary mt-2" href="{% url 'login' %}">Вход</a>
                 {% endif %}
             </div>
         </div>
@@ -92,5 +93,8 @@ header {
     margin-top: 0;
     padding-bottom: 0;
     padding-top: 0;
+}
+#welcome {
+    color: #0d6efd;
 }
 </style>
