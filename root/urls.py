@@ -20,6 +20,7 @@ from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('ckeditor/', include('ckeditor_uploader.urls')),
     path('account/', include('account.urls')),
     path('', include('home.urls')),
     path('home/', include('home.urls')),
@@ -27,7 +28,7 @@ urlpatterns = [
     path('publications/', include('publications.urls')),
     path('talking/', include('talking.urls')),
     path('turnir/', include('turnir.urls')),
-    path('fish_news/', include('fish_news.urls'))
+    path('fish_news/', include('fish_news.urls')),
 ]
 
 if settings.DEBUG:

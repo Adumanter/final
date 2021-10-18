@@ -17,11 +17,12 @@
         {% for craft in page_object %}
         <img src="/media/{{ craft.image }}" alt="" width="50%" height="50%">
         <p><strong>{{ craft.published }}</strong></p>
-           <p><strong>{{ craft.title }}</strong></p>
-           <p>{{ craft.content }}</p>
+           <p class="container"><strong>{{ craft.title }}</strong></p>
+           <p class="co">{{ craft.content }}</p>
+            <iframe width="560" height="315" src="{{ craft.ref }}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
         <div class="clearfix"></div>
             {% if user.username is not None %}
-                <a class="btn btn-primary" href="/crafts/create">Добавить статью</a>
+                <a class="btn btn-primary" href="{% url 'create_craft' %}">Добавить статью</a>
             {% endif %}
         {% endfor %}
 

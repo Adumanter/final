@@ -23,10 +23,10 @@ def create(request):
     if request.method == 'GET':
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
         # Блокировка доступа через адресную строку!!!!!!!!!
-        if request.user.username == 'Adumanter007':
+        if request.user.username:
             # Создаем экземпляр формы и передаеи его в шаблон:
             data['form'] = ArticleForm()
-            return render(request, 'crafts/create.html', context=data)
+            return render(request, 'crafts/create_craft.html', context=data)
         else:
             return render(request, 'layouts/page403.html')
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

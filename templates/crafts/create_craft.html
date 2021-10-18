@@ -4,23 +4,13 @@
         <div class="col-lg-8 col-md-8 mx-auto">
             <h1 class="fw-light">Добавение статьи</h1>
             <div class="form-box" style="text-align: left">
-                <form method="post" action="/crafts/create" enctype="multipart/form-data">
+                <form method="post" action="{% url 'create_craft' %}" enctype="multipart/form-data">
                     {% csrf_token %}
-                    <div class="form-template">
-                        {% for field in form %}
-                        <div class="form-group">
-                            {{ field.label_tag }}
-                            <div>{{ field }}</div>
-                        </div>
-
-                        {% endfor %}
-                    </div>
-                    <p style="margin: 10px">
-                        <input id="b1" type="submit" value="Отпарвить" class="btn btn-primary">
-                    </p>
+                    {{ form.as_p }}
+                   <button type="submit" class="btn btn-primary">Создать статью</button>
                 </form>
             </div>
-            <a href="/publications">Вернутся к списку статей</a>
+            <a href="{% url 'publications' %}">Вернутся к списку статей</a>
         </div>
     </div>
 </section>

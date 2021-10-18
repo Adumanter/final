@@ -25,7 +25,7 @@ def create(request):
         if request.user.username == 'Adumanter007':
             # Создаем экземпляр формы и передаеи его в шаблон:
             data['form'] = ArticleForm()
-            return render(request, 'publications/create.html', context=data)
+            return render(request, 'publications/create_craft.html', context=data)
         else:
             return render(request, 'layouts/page403.html')
         # ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++

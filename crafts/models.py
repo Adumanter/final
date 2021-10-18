@@ -7,6 +7,7 @@ class Craft(models.Model):
     content = models.TextField(max_length=2500, null=False, verbose_name='Содержание')
     image = models.FileField(null=False, upload_to='upload/')
     published = models.DateTimeField(null=False, auto_now=True, verbose_name='Дата публикации')
+    ref = models.URLField(max_length=1000, verbose_name='Ссылка на первоисточник')
 
     def __str__(self):
         return self.title
